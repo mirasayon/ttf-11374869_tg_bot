@@ -1,0 +1,36 @@
+{
+	"name": "ttf-11374869_tg_bot",
+	"version": "1.0.0",
+	"type": "module",
+	"description": "tg bot for test task. s:2024.10.12 ",
+	"scripts": {
+		"coldstart": "npm install && npm run ts:build && npm run start:production",
+		"env:dev": "dotenvx run -f .env.development --quiet  -- ",
+		"env:prod": "dotenvx run -f .env.production --quiet  -- ",
+		"env:test": "dotenvx run -f .env.test --quiet  -- ",
+		"test": "npm run env:test -- node ./dist/tests/main.js",
+		"test:dev": "npm run env:test -- nodemon ./dist/tests/main.js",
+		"dev": "npm run env:dev -- nodemon ./dist/app/server.js",
+		"start:production": "npm run env:prod -- node ./dist/app/server.js",
+		"start:test": "npm run env:test -- node ./dist/app/server.js",
+
+		"ts:watch": "concurrently \"tsc --watch -p ./tsconfig.json\" \"tsc-alias -w\"",
+		"ts:build": "tsc -p ./tsconfig.json && tsc-alias"
+	},
+	"author": "mirasayon@ya.ru",
+	"dependencies": {
+		"@dotenvx/dotenvx": "^1.19.0",
+		"axios": "^1.7.7",
+		"chalk": "^5.3.0",
+		"node-telegram-bot-api": "^0.66.0",
+		"zod": "^3.23.8"
+	},
+	"devDependencies": {
+		"@biomejs/biome": "^1.9.3",
+		"@types/node-telegram-bot-api": "^0.64.7",
+		"concurrently": "^9.0.1",
+		"nodemon": "^3.1.7",
+		"tsc-alias": "^1.8.10",
+		"typescript": "^5.6.3"
+	}
+}
