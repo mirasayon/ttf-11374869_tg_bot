@@ -7,7 +7,7 @@ const bot = new TelegramBot(Env.tg_bot_token, { polling: true });
 bot.onText(/\/start/, (msg) => {
 	bot.sendMessage(msg.chat.id, "Введите название города, чтобы узнать текущую погоду.");
 });
-
+bot.on("polling_error", (msg) => console.error(msg));
 bot.on("message", async (msg) => {
 	const city = msg.text?.trim();
 	if (city && !city.startsWith("/")) {
