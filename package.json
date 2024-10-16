@@ -4,7 +4,7 @@
 	"type": "module",
 	"description": "tg bot for test task. s:2024.10.12 ",
 	"scripts": {
-		"coldstart": "npm install && npm run ts:build && npm run start:production",
+		"coldstart": "npm install && npm run ts-build && npm run start:production",
 		"env:dev": "dotenvx run -f .env.development --quiet  -- ",
 		"env:prod": "dotenvx run -f .env.production --quiet  -- ",
 		"env:test": "dotenvx run -f .env.test --quiet  -- ",
